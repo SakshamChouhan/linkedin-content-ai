@@ -78,8 +78,8 @@ The application is built with a modular architecture for maintainability and ext
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/linkedin-content-creator-ai.git
-cd linkedin-content-creator-ai
+git clone https://github.com/SakshamChouhan/linkedin-content-ai.git
+cd linkedin-content-ai
 ```
 
 2. Install dependencies:
