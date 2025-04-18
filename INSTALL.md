@@ -19,8 +19,8 @@ This document provides step-by-step instructions for setting up and running the 
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/yourusername/linkedin-content-creator-ai.git
-cd linkedin-content-creator-ai
+git clone https://SakshamChouhan/linkedin-content-ai.git
+cd linkedin-content-ai
 ```
 
 ### 2. Install Dependencies
@@ -80,4 +80,4 @@ This will start the Streamlit server and open the application in your default we
 
 ## Support
 
-For questions or support, please create an issue in the GitHub repository or contact the maintainer directly.
+For questions or support, please create an issue in the GitHub repository or contact the by mail :- raisaksham426@gmail.com directly.
