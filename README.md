@@ -170,4 +170,4 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 ## Contact
 
-For questions or support, please contact [raisaksham426@gmail.com].
+For questions or support, please contact raisaksham426@gmail.com.
