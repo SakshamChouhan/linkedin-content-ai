@@ -1,7 +1,5 @@
 # LinkedIn Content Creator AI
 
-> **[Installation Guide](./INSTALL.md)** | **[Technical Architecture](./ARCHITECTURE.md)**
-
 ## Overview
 
 LinkedIn Content Creator AI helps users analyze LinkedIn profiles, find content trends, generate tailored AI-powered posts, and track their effectiveness. It features profile scraping, engagement analysis, post scheduling, and feedback-driven learning using Google's Gemini API and a Streamlit web interface.
