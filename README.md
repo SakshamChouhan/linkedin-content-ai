@@ -9,7 +9,7 @@ LinkedIn Content Creator AI helps users analyze LinkedIn profiles, find content 
 ![LinkedIn Content Creator AI](./images/image3.png)
 ![LinkedIn Content Creator AI](./images/image4.png)
 ![LinkedIn Content Creator AI](./images/image5.png)
-![LinkedIn Content Creator AI](./images/image6.png)
+![LinkedIn Content Creator AI](./images/image62.png)
 ![LinkedIn Content Creator AI](./images/image61.png)
 ![LinkedIn Content Creator AI](./images/image7.png)
 
