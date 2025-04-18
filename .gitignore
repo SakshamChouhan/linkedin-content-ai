@@ -1,5 +1,5 @@
 # Byte-compiled / optimized / DLL files
-__pycache__
+__pycache__/
 
 # Virtual environments
 .env
@@ -45,7 +45,6 @@ htmlcov/
 .coverage
 .tox/
 .nox/
-.cache/
 pytest_cache/
 
 # Logs
