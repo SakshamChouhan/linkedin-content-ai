@@ -1,5 +1,7 @@
 # LinkedIn Content Creator AI
 
+> **[Installation Guide](./INSTALL.md)** | **[Technical Architecture](./ARCHITECTURE.md)**
+
 ## Overview
 
 LinkedIn Content Creator AI helps users analyze LinkedIn profiles, find content trends, generate tailored AI-powered posts, and track their effectiveness. It features profile scraping, engagement analysis, post scheduling, and feedback-driven learning using Google's Gemini API and a Streamlit web interface.
@@ -29,6 +31,10 @@ LinkedIn Content Creator AI helps users analyze LinkedIn profiles, find content 
 
 ### Installation
 
+For complete setup instructions, please see the [Installation Guide](./INSTALL.md).
+
+#### Quick Steps
+
 1. Clone the repository:
 ```bash
 git clone https://github.com/SakshamChouhan/linkedin-content-ai.git
@@ -51,6 +57,16 @@ Replace `your_gemini_api_key` with your actual Gemini API key from [Google AI St
 ```bash
 streamlit run app.py
 ```
+
+## Architecture
+
+A detailed explanation of the application's architecture, main modules, and their interactions is available in [ARCHITECTURE.md](./ARCHITECTURE.md).
+
+---
+
+**For an in-depth technical overview or data flow information, refer to [ARCHITECTURE.md](./ARCHITECTURE.md).**
+
+---
 
 ## Usage Guide
 
