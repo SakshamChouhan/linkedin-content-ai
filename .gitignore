@@ -41,6 +41,9 @@ Pipfile.lock
 .DS_Store
 Thumbs.db
 
+# Node.js dependencies
+node_modules/
+
 # Test and coverage
 htmlcov/
 .coverage
