@@ -1,0 +1,28 @@
+# Main web app and UI
+streamlit>=1.20.0
+
+# Data processing and analysis
+pandas>=1.4.0
+numpy>=1.21.0
+matplotlib>=3.5.0
+
+# LinkedIn/trafilatura scraping utilities
+trafilatura>=1.6.0
+
+# AI generation (Google Gemini models)
+google-generativeai>=0.5.0
+
+# Environment variable loader
+python-dotenv>=1.0.0
+
+# HTML parsing/cleaning (needed for trafilatura and justext)
+lxml>=5.2.0
+lxml_html_clean>=0.4.0
+
+# Justext is used by trafilatura for extraction
+justext>=3.0.0
+
+# (Optional) If code reading reveals other modules, add as needed:
+# Add any other dependencies (such as seaborn or requests) here if used elsewhere in the project.
+
+# --- End of file ---
