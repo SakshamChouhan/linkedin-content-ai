@@ -4,16 +4,6 @@
 
 LinkedIn Content Creator AI helps users analyze LinkedIn profiles, find content trends, generate tailored AI-powered posts, and track their effectiveness. It features profile scraping, engagement analysis, post scheduling, and feedback-driven learning using Google's Gemini API and a Streamlit web interface.
 
-<<<<<<< HEAD
-## Features
-- Scrape LinkedIn profile data (posts & engagement metrics)
-- Analyze content patterns and trends
-- Discover optimal posting times
-- AI-powered post generation (customizable tone, length, hashtags, CTA)
-- Schedule posts for specific times
-- Feedback dashboard for generated content
-- SQLite local storage
-=======
 ![LinkedIn Content Creator AI](./images/image1.png)
 ![LinkedIn Content Creator AI](./images/image2.png)
 ![LinkedIn Content Creator AI](./images/image3.png)
@@ -21,7 +11,6 @@ LinkedIn Content Creator AI helps users analyze LinkedIn profiles, find content 
 ![LinkedIn Content Creator AI](./images/image5.png)
 ![LinkedIn Content Creator AI](./images/image6.png)
 ![LinkedIn Content Creator AI](./images/image7.png)
->>>>>>> 468c8b1869ab7105c8783e57000e7379e6ebd0f2
 
 ## Technology Stack
 - **Frontend**: Streamlit
@@ -33,9 +22,6 @@ LinkedIn Content Creator AI helps users analyze LinkedIn profiles, find content 
 
 ## Getting Started
 
-<<<<<<< HEAD
-See [INSTALL.md](INSTALL.md) for setup instructions and [ARCHITECTURE.md](ARCHITECTURE.md) for technical details.
-=======
 ### Prerequisites
 - Python 3.11 or higher
 - Google Gemini API key (for AI-powered content generation)
@@ -129,17 +115,13 @@ Current limitations and planned improvements:
 4. **Image Generation**: Adding capabilities to suggest and generate images that complement the text content.
 
 5. **Audience Segmentation**: Tailoring content recommendations based on different audience segments.
->>>>>>> 468c8b1869ab7105c8783e57000e7379e6ebd0f2
 
 ## License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
-<<<<<<< HEAD
-=======
 
 ## Contact
 
 For questions or support, please contact raisaksham426@gmail.com.
 
 ## CodeLikeARed❤️
->>>>>>> 468c8b1869ab7105c8783e57000e7379e6ebd0f2
