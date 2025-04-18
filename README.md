@@ -4,7 +4,7 @@
 
 The LinkedIn Content Creator AI is an intelligent assistant that helps users optimize their LinkedIn content strategy. The application analyzes LinkedIn profiles, identifies content trends, generates AI-powered posts, and provides feedback mechanisms to continuously improve content quality based on user preferences.
 
-![LinkedIn Content Creator AI](generated-icon.png)
+![LinkedIn Content Creator AI](image1.png)
 
 ## Key Features
 
