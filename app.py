@@ -8,6 +8,7 @@ import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
 import datetime
+import pytz
 from linkedin_scraper import scrape_linkedin_profile
 from data_analyzer import (
     analyze_post_engagement,
@@ -186,6 +187,52 @@ elif page == "Post Generator":
         max_length = st.slider("Maximum post length", 100, 1000, 500)
         include_hashtags = st.checkbox("Include hashtags", value=True)
         num_hashtags = st.slider("Number of hashtags", 1, 10, 3) if include_hashtags else 0
+
+    # Suggest optimal posting time
+    posts_df = get_posts()
+    default_time = None
+    suggested_time_str = "09:00" # Fallback
+    if not posts_df.empty:
+        optimal_time = get_optimal_posting_time(posts_df)
+        st.info(f"**Suggested optimal posting time:** {optimal_time}")
+        
+        # Try to parse hour (in format like 'Wednesday 11:00')
+        try:
+            splitted = optimal_time.split(' ')
+            if len(splitted) == 2:
+                _day, timepart = splitted
+                suggested_time_str = timepart
+                # Set default date to tomorrow at optimal hour
+                default_time = datetime.datetime.now() + datetime.timedelta(days=1)
+                default_time = default_time.replace(
+                    hour=int(timepart.split(':')[0]), minute=int(timepart.split(':')[1]), second=0, microsecond=0
+                )
+        except Exception:
+            default_time = None
+    
+    st.markdown("#### Schedule this post for later?")
+    schedule_post = st.checkbox("Schedule post at a specific time", value=True)
+
+    scheduled_datetime = None
+    if schedule_post:
+        # Default values
+        default_date = datetime.datetime.now().date() + datetime.timedelta(days=1)
+        default_time = datetime.time(9, 0)  # Default to 9:00 AM
+
+        # If optimal_time is parsed, try to use its hour:minute
+        if not posts_df.empty:
+            optimal_time = get_optimal_posting_time(posts_df)
+            try:
+                splitted = optimal_time.split(" ")
+                if len(splitted) == 2 and ':' in splitted[1]:
+                    hr, mn = map(int, splitted[1].split(":"))
+                    default_time = datetime.time(hr, mn)
+            except Exception:
+                pass
+
+        date_part = st.date_input("Date to post", value=default_date, min_value=datetime.datetime.now().date())
+        time_part = st.time_input("Time to post", value=default_time, step=900)  # Step in seconds (15 min = 900 sec)
+        scheduled_datetime = datetime.datetime.combine(date_part, time_part)
     
     # Generate post button
     if st.button("Generate Post"):
@@ -212,17 +259,17 @@ elif page == "Post Generator":
                             col1, col2, col3 = st.columns(3)
                             with col1:
                                 if st.button(f"👍 Like", key=f"like_{i}"):
-                                    save_generated_post(post["content"], topic, tone, include_cta, include_hashtags, feedback="positive")
-                                    st.success("Post saved with positive feedback!")
+                                    save_generated_post(post["content"], topic, tone, include_cta, include_hashtags, feedback="positive", scheduled_time=scheduled_datetime.strftime("%Y-%m-%d %H:%M:%S") if scheduled_datetime else None)
+                                    st.success("Post scheduled and saved with positive feedback!")
                                     st.balloons()
                             with col2:
                                 if st.button(f"👎 Dislike", key=f"dislike_{i}"):
-                                    save_generated_post(post["content"], topic, tone, include_cta, include_hashtags, feedback="negative")
-                                    st.info("Post saved with negative feedback. We'll improve next time!")
+                                    save_generated_post(post["content"], topic, tone, include_cta, include_hashtags, feedback="negative", scheduled_time=scheduled_datetime.strftime("%Y-%m-%d %H:%M:%S") if scheduled_datetime else None)
+                                    st.info("Post scheduled and saved with negative feedback. We'll improve next time!")
                             with col3:
                                 if st.button(f"💾 Save", key=f"save_{i}"):
-                                    save_generated_post(post["content"], topic, tone, include_cta, include_hashtags, feedback="neutral")
-                                    st.success("Post saved!")
+                                    save_generated_post(post["content"], topic, tone, include_cta, include_hashtags, feedback="neutral", scheduled_time=scheduled_datetime.strftime("%Y-%m-%d %H:%M:%S") if scheduled_datetime else None)
+                                    st.success("Post scheduled and saved!")
                     else:
                         st.error("Failed to generate posts. Please try again.")
                 except Exception as e:
@@ -241,6 +288,19 @@ elif page == "Feedback Dashboard":
         insert_sample_feedback()
         feedback_df = get_post_feedback()
         feedback_stats = get_post_feedback_stats()
+    
+    # Show scheduled (future) posts
+    with st.expander("⏰ View Scheduled Posts"):
+        now_str = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        scheduled_df = feedback_df[feedback_df['scheduled_time'].notna() & (feedback_df['scheduled_time'] > now_str)]
+        if scheduled_df.empty:
+            st.info("No posts scheduled for future publishing.")
+        else:
+            st.write("These posts are scheduled for publishing at optimal/future times.")
+            st.dataframe(
+                scheduled_df[["topic", "tone", "scheduled_time", "content"]].sort_values("scheduled_time"),
+                use_container_width=True
+            )
     
     # Display feedback overview
     st.subheader("Feedback Overview")
