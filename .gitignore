@@ -1,6 +1,59 @@
-.qodo
-.env
+# Byte-compiled / optimized / DLL files
 __pycache__/
-.pyc
+*.py[cod]
+*.pyo
+*.pyd
+*.pyc
+
+# Virtual environments
+.env
 .venv/
-.db
+venv/
+ENV/
+env/
+.pipenv/
+poetry.lock
+Pipfile.lock
+
+# Environment variables
+.env.*
+
+# Database files
+*.db
+*.sqlite3
+
+# Jupyter Notebook Checkpoints
+.ipynb_checkpoints
+
+# Streamlit cache and generated stuff
+.streamlit/
+.cache/
+*.streamlit.log
+
+# Tooling / IDE / Project settings
+.qodo
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# MacOS and system files
+.DS_Store
+Thumbs.db
+
+# Test and coverage
+htmlcov/
+.coverage
+.tox/
+.nox/
+.cache/
+pytest_cache/
+
+# Logs
+*.log
+
+# Build folders
+build/
+dist/
+*.egg-info/
+.eggs/
