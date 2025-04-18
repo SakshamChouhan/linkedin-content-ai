@@ -80,4 +80,4 @@ This will start the Streamlit server and open the application in your default we
 
 ## Support
 
-For questions or support, please create an issue in the GitHub repository or contact the maintainer directly.
+For questions or support, please create an issue in the GitHub repository or contact the by mail :- raisaksham426@gmail.com directly.
